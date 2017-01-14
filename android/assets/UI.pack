@@ -1,0 +1,26 @@
+
+UI.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+ctrl_back_checked
+  rotate: false
+  xy: 1, 1
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+ctrl_back_down
+  rotate: false
+  xy: 28, 1
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+ctrl_back_up
+  rotate: false
+  xy: 55, 1
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,222 @@
+
+textures_tmp.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 543
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+game_over
+  rotate: false
+  xy: 1, 408
+  size: 671, 133
+  orig: 671, 133
+  offset: 0, 0
+  index: -1
+tap_me
+  rotate: false
+  xy: 1, 273
+  size: 671, 133
+  orig: 671, 133
+  offset: 0, 0
+  index: -1
+ground_grass1
+  rotate: false
+  xy: 803, 938
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass2
+  rotate: false
+  xy: 674, 456
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass3
+  rotate: false
+  xy: 1, 186
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass4
+  rotate: false
+  xy: 803, 851
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+sky
+  rotate: false
+  xy: 899, 938
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+plane1
+  rotate: false
+  xy: 674, 381
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane2
+  rotate: false
+  xy: 1, 111
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane3
+  rotate: false
+  xy: 97, 198
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+bird12
+  rotate: false
+  xy: 803, 799
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird22
+  rotate: false
+  xy: 899, 886
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird32
+  rotate: false
+  xy: 674, 329
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird42
+  rotate: false
+  xy: 1, 59
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird52
+  rotate: false
+  xy: 187, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird62
+  rotate: false
+  xy: 803, 747
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird72
+  rotate: false
+  xy: 674, 277
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird82
+  rotate: false
+  xy: 1, 7
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird92
+  rotate: false
+  xy: 239, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird12
+  rotate: false
+  xy: 803, 695
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird22
+  rotate: false
+  xy: 291, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird32
+  rotate: false
+  xy: 803, 643
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird42
+  rotate: false
+  xy: 343, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird52
+  rotate: false
+  xy: 803, 591
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird62
+  rotate: false
+  xy: 395, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird72
+  rotate: false
+  xy: 447, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird82
+  rotate: false
+  xy: 499, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+gbird92
+  rotate: false
+  xy: 551, 221
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+tap2
+  rotate: false
+  xy: 770, 511
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+point
+  rotate: false
+  xy: 1, 1
+  size: 4, 4
+  orig: 4, 4
+  offset: 0, 0
+  index: -1

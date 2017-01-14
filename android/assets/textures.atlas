@@ -1,0 +1,145 @@
+
+textures.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 1, 447
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+tap_me
+  rotate: false
+  xy: 1, 267
+  size: 210, 178
+  orig: 210, 178
+  offset: 0, 0
+  index: -1
+ground_grass1
+  rotate: false
+  xy: 803, 842
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass2
+  rotate: false
+  xy: 1, 180
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass3
+  rotate: false
+  xy: 213, 360
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+ground_grass4
+  rotate: false
+  xy: 803, 755
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+sky
+  rotate: false
+  xy: 899, 842
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+plane1
+  rotate: false
+  xy: 1, 105
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane2
+  rotate: false
+  xy: 97, 192
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane3
+  rotate: false
+  xy: 213, 285
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+bird12
+  rotate: false
+  xy: 309, 395
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird22
+  rotate: false
+  xy: 803, 703
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird32
+  rotate: false
+  xy: 899, 790
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird42
+  rotate: false
+  xy: 1, 53
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird52
+  rotate: false
+  xy: 361, 395
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird62
+  rotate: false
+  xy: 803, 651
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird72
+  rotate: false
+  xy: 1, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird82
+  rotate: false
+  xy: 413, 395
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+bird92
+  rotate: false
+  xy: 803, 599
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+tap2
+  rotate: false
+  xy: 309, 363
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
