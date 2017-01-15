@@ -80,7 +80,7 @@ public class HelicopterMainMenu extends ScreenAdapter {
 
         batch.draw(background, 0, 0);
 
-        back.draw(batch, 0.1f);
+       // back.draw(batch, 0.1f);
 
         batch.enableBlending();
 
