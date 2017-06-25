@@ -109,12 +109,12 @@ public class MainGameScene extends ScreenAdapter
 
 		tapIndicator = textures.findRegion("tap2");
         // TEMP
-        tapMe = textures.findRegion("tap_me");
-		gameOver = textures.findRegion("game_over");
-		background = textures.findRegion("background");
+        tapMe = textures.findRegion("messages/tap_me");
+		gameOver = textures.findRegion("messages/game_over");
+		background = textures.findRegion("environment/background");
 		point = textures.findRegion("point");
 
-		above=textures.findRegion("sky");
+		above=textures.findRegion("environment/sky");
 		above.flip(true,true);
 
 		below = new TextureRegion[10];
@@ -397,10 +397,10 @@ public class MainGameScene extends ScreenAdapter
 
 		switch(number){
 
-			case 1: return "ground_grass1";
-			case 2: return "ground_grass2";
-			case 3: return "ground_grass3";
-			case 4: return "ground_grass4";
+			case 1: return "environment/ground_grass1";
+			case 2: return "environment/ground_grass2";
+			case 3: return "environment/ground_grass3";
+			case 4: return "environment/ground_grass4";
 
 		}
 

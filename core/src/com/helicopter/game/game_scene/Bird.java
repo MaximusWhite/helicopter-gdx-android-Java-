@@ -53,15 +53,15 @@ public class Bird {
         Random rand = new Random();
         birdAnim = rand.nextFloat();
 
-        bird = new Animation(0.08f, txt.findRegion("bird12"),
-                txt.findRegion("bird22"),
-                txt.findRegion("bird32"),
-                txt.findRegion("bird42"),
-                txt.findRegion("bird52"),
-                txt.findRegion("bird62"),
-                txt.findRegion("bird72"),
-                txt.findRegion("bird82"),
-                txt.findRegion("bird92"));
+        bird = new Animation(0.08f, txt.findRegion("birds/bird12"),
+                txt.findRegion("birds/bird22"),
+                txt.findRegion("birds/bird32"),
+                txt.findRegion("birds/bird42"),
+                txt.findRegion("birds/bird52"),
+                txt.findRegion("birds/bird62"),
+                txt.findRegion("birds/bird72"),
+                txt.findRegion("birds/bird82"),
+                txt.findRegion("birds/bird92"));
 
         bird.setPlayMode(PlayMode.LOOP);
 

@@ -3,214 +3,130 @@ textures.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-background
-  rotate: false
-  xy: 1, 535
-  size: 800, 480
-  orig: 800, 480
-  offset: 0, 0
-  index: -1
-menu_back
-  rotate: false
-  xy: 1, 53
-  size: 800, 480
-  orig: 800, 480
-  offset: 0, 0
-  index: -1
-ground_grass1
-  rotate: false
-  xy: 803, 930
-  size: 94, 85
-  orig: 94, 85
-  offset: 0, 0
-  index: -1
-ground_grass2
-  rotate: false
-  xy: 803, 843
-  size: 94, 85
-  orig: 94, 85
-  offset: 0, 0
-  index: -1
-ground_grass3
-  rotate: false
-  xy: 899, 930
-  size: 94, 85
-  orig: 94, 85
-  offset: 0, 0
-  index: -1
-ground_grass4
-  rotate: false
-  xy: 803, 756
-  size: 94, 85
-  orig: 94, 85
-  offset: 0, 0
-  index: -1
-sky
-  rotate: false
-  xy: 899, 843
-  size: 94, 85
-  orig: 94, 85
-  offset: 0, 0
-  index: -1
-plane1
-  rotate: false
-  xy: 803, 681
-  size: 88, 73
-  orig: 88, 73
-  offset: 0, 0
-  index: -1
-plane2
-  rotate: false
-  xy: 899, 768
-  size: 88, 73
-  orig: 88, 73
-  offset: 0, 0
-  index: -1
-plane3
-  rotate: false
-  xy: 803, 606
-  size: 88, 73
-  orig: 88, 73
-  offset: 0, 0
-  index: -1
-bird12
+birds/bird12
   rotate: false
   xy: 1, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-bird22
-  rotate: false
-  xy: 803, 554
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-bird32
+birds/bird22
   rotate: false
   xy: 53, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-bird42
-  rotate: false
-  xy: 803, 502
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-bird52
+birds/bird32
   rotate: false
   xy: 105, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-bird62
-  rotate: false
-  xy: 803, 450
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-bird72
+birds/bird42
   rotate: false
   xy: 157, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-bird82
-  rotate: false
-  xy: 803, 398
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-bird92
+birds/bird52
   rotate: false
   xy: 209, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-gbird12
-  rotate: false
-  xy: 803, 346
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-gbird22
+birds/bird62
   rotate: false
   xy: 261, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-gbird32
-  rotate: false
-  xy: 803, 294
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-gbird42
+birds/bird72
   rotate: false
   xy: 313, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-gbird52
-  rotate: false
-  xy: 803, 242
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-gbird62
+birds/bird82
   rotate: false
   xy: 365, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-gbird72
-  rotate: false
-  xy: 803, 190
-  size: 50, 50
-  orig: 50, 50
-  offset: 0, 0
-  index: -1
-gbird82
+birds/bird92
   rotate: false
   xy: 417, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-gbird92
+birds/gbird12
   rotate: false
-  xy: 803, 138
+  xy: 469, 1
   size: 50, 50
   orig: 50, 50
   offset: 0, 0
   index: -1
-tap2
+birds/gbird22
   rotate: false
-  xy: 855, 574
-  size: 30, 30
-  orig: 30, 30
+  xy: 521, 1
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
-point
+birds/gbird32
   rotate: false
-  xy: 995, 1011
-  size: 4, 4
-  orig: 4, 4
+  xy: 573, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird42
+  rotate: false
+  xy: 625, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird52
+  rotate: false
+  xy: 677, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird62
+  rotate: false
+  xy: 729, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird72
+  rotate: false
+  xy: 781, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird82
+  rotate: false
+  xy: 833, 1
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+birds/gbird92
+  rotate: false
+  xy: 885, 1
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 
@@ -218,17 +134,116 @@ textures2.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-game_over
+environment/background
+  rotate: false
+  xy: 1, 1
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+environment/ground_grass1
+  rotate: false
+  xy: 803, 396
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+environment/ground_grass2
+  rotate: false
+  xy: 803, 309
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+environment/ground_grass3
+  rotate: false
+  xy: 899, 396
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+environment/ground_grass4
+  rotate: false
+  xy: 803, 222
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+environment/sky
+  rotate: false
+  xy: 899, 309
+  size: 94, 85
+  orig: 94, 85
+  offset: 0, 0
+  index: -1
+
+textures3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+messages/menu_back
+  rotate: false
+  xy: 1, 271
+  size: 800, 480
+  orig: 800, 480
+  offset: 0, 0
+  index: -1
+messages/game_over
   rotate: false
   xy: 1, 136
   size: 671, 133
   orig: 671, 133
   offset: 0, 0
   index: -1
-tap_me
+messages/tap_me
   rotate: false
   xy: 1, 1
   size: 671, 133
   orig: 671, 133
+  offset: 0, 0
+  index: -1
+
+textures4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+plane/plane1
+  rotate: false
+  xy: 1, 151
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane/plane2
+  rotate: false
+  xy: 1, 76
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+plane/plane3
+  rotate: false
+  xy: 1, 1
+  size: 88, 73
+  orig: 88, 73
+  offset: 0, 0
+  index: -1
+
+textures5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+tap2
+  rotate: false
+  xy: 1, 1
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+point
+  rotate: false
+  xy: 33, 27
+  size: 4, 4
+  orig: 4, 4
   offset: 0, 0
   index: -1
