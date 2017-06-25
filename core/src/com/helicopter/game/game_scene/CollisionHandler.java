@@ -1,6 +1,5 @@
-package com.helicopter.game;
+package com.helicopter.game.game_scene;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 
 /**

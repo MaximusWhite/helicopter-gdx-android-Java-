@@ -1,9 +1,7 @@
-package com.helicopter.game;
+package com.helicopter.game.game_scene;
 
 import java.util.Random;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Peripheral;
 import com.badlogic.gdx.ScreenAdapter;
@@ -11,22 +9,17 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
+import com.helicopter.game.*;
 
-public class HelicopterGameScene extends ScreenAdapter
+public class MainGameScene extends ScreenAdapter
 {
 	SpriteBatch batch;
 	TextureRegion background;
@@ -57,7 +50,7 @@ public class HelicopterGameScene extends ScreenAdapter
     Plane plane;
 
 	boolean touchInput = true;
-	boolean debugMode = false;
+	boolean debugMode = true;
 	boolean planeOutOfBounds = false;
 	int touchTime=0;
 
@@ -100,7 +93,7 @@ public class HelicopterGameScene extends ScreenAdapter
 
 	// VARS DONE
 
-	public HelicopterGameScene (HelicopterGame helicoptGame) {
+	public MainGameScene(HelicopterGame helicoptGame) {
 
 
 		Gdx.input.setInputProcessor(inputProcessor);
@@ -205,7 +198,7 @@ public class HelicopterGameScene extends ScreenAdapter
 				case 2:
 					gameState = GameState.GAME_OVER;		// bird collision
 
-					game.setScreen(new HelicopterMainMenu(game));
+					//game.setScreen(new HelicopterMainMenu(game));  // changing screen
 
 					return;
 					//break;
@@ -396,8 +389,6 @@ public class HelicopterGameScene extends ScreenAdapter
 		}
 
 	}
-
-
 
 	public String pickAGroundTexture(){
 

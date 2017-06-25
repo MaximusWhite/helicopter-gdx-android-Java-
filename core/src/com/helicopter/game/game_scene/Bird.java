@@ -1,4 +1,4 @@
-package com.helicopter.game;
+package com.helicopter.game.game_scene;
 
 import java.util.Random;
 

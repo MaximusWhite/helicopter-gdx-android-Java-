@@ -1,17 +1,15 @@
 package com.helicopter.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.helicopter.game.game_scene.MainGameScene;
 
 /**
  * Created by mikef on 21-May-2016.
@@ -24,9 +22,9 @@ public class HelicopterGame extends Game {
     public static final int screenWidth = 800;
     public static final int screenHeight = 480;
 
-    OrthographicCamera camera;
-    Viewport viewport;
-    SpriteBatch batch;
+    public  OrthographicCamera camera;
+    private Viewport viewport;
+    public SpriteBatch batch;
   //  TextureAtlas textures = new TextureAtlas();
 
     private AssetManager manager = new AssetManager();
@@ -44,7 +42,7 @@ public class HelicopterGame extends Game {
 
         batch = new SpriteBatch();
 
-        setScreen(new HelicopterGameScene(this));
+        setScreen(new MainGameScene(this));
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.helicopter.game;
+package com.helicopter.game.main_menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.helicopter.game.HelicopterGame;
+import com.helicopter.game.game_scene.MainGameScene;
 
 /**
  * Created by mikef on 15-Jun-2016.
@@ -64,7 +66,7 @@ public class HelicopterMainMenu extends ScreenAdapter {
 
         if(back.isPressed()){
 
-            game.setScreen(new HelicopterGameScene(game));
+            game.setScreen(new MainGameScene(game));
         }
 
     }
