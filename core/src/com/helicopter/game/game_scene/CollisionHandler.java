@@ -9,11 +9,13 @@ public class CollisionHandler {
 
     Plane plane;
     Bird[] birds;
+    Pickup pickup;
 
-    public CollisionHandler(Plane plane, Bird[] birds){
+    public CollisionHandler(Plane plane, Bird[] birds, Pickup pickup){
 
         this.plane = plane;
         this.birds = birds;
+        this.pickup = pickup;
 
     }
 

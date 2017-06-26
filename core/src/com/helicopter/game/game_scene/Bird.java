@@ -68,8 +68,6 @@ public class Bird {
         width = bird.getKeyFrame(0f).getRegionWidth();
         height = bird.getKeyFrame(0f).getRegionHeight();
 
-
-
     }
 
 

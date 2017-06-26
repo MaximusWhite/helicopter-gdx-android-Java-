@@ -207,6 +207,53 @@ textures4.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+pickups/energy1
+  rotate: false
+  xy: 1, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+pickups/energy2
+  rotate: false
+  xy: 43, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+pickups/energy3
+  rotate: false
+  xy: 85, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+pickups/energy4
+  rotate: false
+  xy: 127, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+pickups/energy5
+  rotate: false
+  xy: 169, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+pickups/energy6
+  rotate: false
+  xy: 211, 1
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
+
+textures5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
 plane/plane1
   rotate: false
   xy: 1, 151
@@ -229,7 +276,7 @@ plane/plane3
   offset: 0, 0
   index: -1
 
-textures5.png
+textures6.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none

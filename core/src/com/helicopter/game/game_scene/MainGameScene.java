@@ -46,11 +46,10 @@ public class MainGameScene extends ScreenAdapter
 	private static final int TOUCH_IMPULSE=300;
 	int orientation;
 
-
     Plane plane;
 
 	boolean touchInput = true;
-	boolean debugMode = true;
+	boolean debugMode = false;
 	boolean planeOutOfBounds = false;
 	int touchTime=0;
 
@@ -72,6 +71,10 @@ public class MainGameScene extends ScreenAdapter
 	TextureAtlas textures = new TextureAtlas();
 
 	Bird[] birds;
+
+	Pickup energy;
+
+	float pickupTimeout = 0;
 
 	InputTracker inputProcessor = new InputTracker();
 
@@ -102,6 +105,7 @@ public class MainGameScene extends ScreenAdapter
 		batch = game.batch;
 		camera = game.camera;
 		textures = (TextureAtlas)game.getAsset("textures.pack", textures);
+		energy = new Pickup(3,textures);
 
 		//camera = new OrthographicCamera();
 
@@ -148,7 +152,7 @@ public class MainGameScene extends ScreenAdapter
 
 		plane = new Plane(textures);
 
-		collisions = new CollisionHandler(plane, birds);
+		collisions = new CollisionHandler(plane, birds, energy);
 
 		if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)){
 			orientation = Gdx.input.getRotation();
@@ -215,7 +219,7 @@ public class MainGameScene extends ScreenAdapter
 		}
 
             Plane.planeAnim += deltaTime;			// updating animation frames
-            //Bird.birdAnim += deltaTime;
+            Pickup.pickupAnimTime += deltaTime;
 
 
 			if(plane.getX() < plane.getWidth()/2 * -1){planeOutOfBounds = true;}
@@ -242,6 +246,10 @@ public class MainGameScene extends ScreenAdapter
 			if(plane.getX() > plane.getWidth() ){
 				planeOutOfBounds = false;
 			}
+
+			checkAndCreateEnergy(deltaTime);
+			energy.updatePickup();
+
             for (Bird bird : birds) {
 					bird.updateBird(deltaTime);
                     //if(bird.type == Bird.BirdType.KILL_BONUS) continue;
@@ -351,6 +359,8 @@ public class MainGameScene extends ScreenAdapter
 
 		batch.draw(plane.plane.getKeyFrame(Plane.planeAnim), plane.getX()-45f, plane.getY()-30f);
 			if(debugMode) batch.draw(point, plane.position.x, plane.position.y);
+
+		batch.draw(energy.pickupAnimation.getKeyFrame(Pickup.pickupAnimTime), energy.getX()-10f, energy.getY()-10f );
 
 		if (tapDrawTime>0) batch.draw(tapIndicator, touchPos.x-15f, touchPos.y-15f);
 
@@ -472,4 +482,28 @@ public class MainGameScene extends ScreenAdapter
 		below = randomizeGround(below);
 		points = 0;
 	}
+
+	private void checkAndCreateEnergy(float delta){
+
+		pickupTimeout-=delta;
+		if (pickupTimeout <=0) {
+			pickupTimeout=(float)(0.5+Math.random()*0.5);
+			if(addEnergy(Pickup.ENERGY))
+				pickupTimeout=1+(float)Math.random()*5;
+		}
+
+	}
+
+	private boolean addEnergy(int pickupType)
+	{
+
+		Vector2 randomPosition=new Vector2();
+		randomPosition.x=820;
+		randomPosition.y=(float) (80+Math.random()*320);
+		Pickup tempPickup=new Pickup(pickupType, textures);
+		tempPickup.pickupPosition.set(randomPosition);
+		energy = tempPickup;
+		return true;
+	}
+
 }
