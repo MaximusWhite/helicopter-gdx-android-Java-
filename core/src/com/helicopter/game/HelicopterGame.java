@@ -5,11 +5,13 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.helicopter.game.game_scene.MainGameScene;
+import com.matsemann.libgdxloadingscreen.screen.LoadingScreen;
 
 /**
  * Created by mikef on 21-May-2016.
@@ -27,7 +29,7 @@ public class HelicopterGame extends Game {
     public SpriteBatch batch;
   //  TextureAtlas textures = new TextureAtlas();
 
-    private AssetManager manager = new AssetManager();
+    public static AssetManager manager = new AssetManager();
 
     public HelicopterGame(){
         FPSLogger fpsLogger = new FPSLogger();
@@ -38,11 +40,8 @@ public class HelicopterGame extends Game {
     @Override
     public void create() {
 
-        loadAssets();
-
         batch = new SpriteBatch();
-
-        setScreen(new MainGameScene(this));
+        setScreen(new LoadingScreen(this));
     }
 
     @Override
@@ -63,12 +62,13 @@ public class HelicopterGame extends Game {
         //textures.dispose();
     }
 
-    public void loadAssets(){
+    public static void loadAssets(){
 
         manager.load("textures.pack", TextureAtlas.class);
         manager.load("UI.pack", TextureAtlas.class);
         manager.load("points_font.fnt", BitmapFont.class);
         manager.load("dfont.fnt", BitmapFont.class);
+        manager.load("fx/Smoke", ParticleEffect.class);
         manager.finishLoading();
     }
 

@@ -16,7 +16,7 @@ public class Pickup {
     Animation pickupAnimation;
     Vector2 pickupPosition = new Vector2();
     Vector2 velocity = new Vector2(-3, 0);
-
+    public static int value;
 
     public Pickup(int id, TextureAtlas atlas){
 
@@ -27,7 +27,7 @@ public class Pickup {
                 atlas.findRegion("pickups/energy5"),
                 atlas.findRegion("pickups/energy6"));
         pickupAnimation.setPlayMode(com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
-
+        value = 100;
     }
 
     public float getX(){
@@ -39,8 +39,10 @@ public class Pickup {
     }
 
     public void updatePickup(){
-
         pickupPosition.add(velocity);
     }
-
+    public int getValue(){
+      return value;
+    }
+    public float getAnim(){return pickupAnimTime; }
 }
