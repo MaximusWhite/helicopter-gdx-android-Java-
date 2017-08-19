@@ -23,10 +23,10 @@ public class Plane {
 
     public Plane(TextureAtlas txt){
 
-        plane = new Animation(0.05f, txt.findRegion("plane1"),
-                txt.findRegion("plane2"),
-                txt.findRegion("plane3"),
-                txt.findRegion("plane2"));
+        plane = new Animation(0.05f, txt.findRegion("plane/plane1"),
+                txt.findRegion("plane/plane2"),
+                txt.findRegion("plane/plane3"),
+                txt.findRegion("plane/plane2"));
         plane.setPlayMode(com.badlogic.gdx.graphics.g2d.Animation.PlayMode.LOOP);
         setDefPos();
 

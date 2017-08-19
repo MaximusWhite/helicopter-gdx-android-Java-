@@ -9,10 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -46,11 +43,10 @@ public class MainGameScene extends ScreenAdapter
 	private static final int TOUCH_IMPULSE=300;
 	int orientation;
 
-
     Plane plane;
 
 	boolean touchInput = true;
-	boolean debugMode = true;
+	boolean debugMode = false;
 	boolean planeOutOfBounds = false;
 	int touchTime=0;
 
@@ -73,6 +69,10 @@ public class MainGameScene extends ScreenAdapter
 
 	Bird[] birds;
 
+	Pickup energy;
+
+	float pickupTimeout = 0;
+
 	InputTracker inputProcessor = new InputTracker();
 
 
@@ -90,6 +90,7 @@ public class MainGameScene extends ScreenAdapter
 
 	HelicopterGame game;
 
+	ParticleEffect smoke = new ParticleEffect();
 
 	// VARS DONE
 
@@ -102,6 +103,8 @@ public class MainGameScene extends ScreenAdapter
 		batch = game.batch;
 		camera = game.camera;
 		textures = (TextureAtlas)game.getAsset("textures.pack", textures);
+		smoke = (ParticleEffect)game.getAsset("fx/Smoke", smoke);
+		energy = new Pickup(3,textures);
 
 		//camera = new OrthographicCamera();
 
@@ -109,12 +112,12 @@ public class MainGameScene extends ScreenAdapter
 
 		tapIndicator = textures.findRegion("tap2");
         // TEMP
-        tapMe = textures.findRegion("tap_me");
-		gameOver = textures.findRegion("game_over");
-		background = textures.findRegion("background");
+        tapMe = textures.findRegion("messages/tap_me");
+		gameOver = textures.findRegion("messages/game_over");
+		background = textures.findRegion("environment/background");
 		point = textures.findRegion("point");
 
-		above=textures.findRegion("sky");
+		above=textures.findRegion("environment/sky");
 		above.flip(true,true);
 
 		below = new TextureRegion[10];
@@ -178,29 +181,26 @@ public class MainGameScene extends ScreenAdapter
 			return;
 		}
 
-
 		// GAME IN ACTION
 
         if (gameState == GameState.ACTION) {
-
-			ptcount++;
-
 
 			switch(collisions.collisionHappened()){
 
 				case 0: break;
 				case 1:
 					gameState = GameState.GAME_OVER;		// surrounding collision
-
 					return;
 					//break;
-
 				case 2:
 					gameState = GameState.GAME_OVER;		// bird collision
-
-					//game.setScreen(new HelicopterMainMenu(game));  // changing screen
-
 					return;
+					//game.setScreen(new HelicopterMainMenu(game));  // changing screen
+				case 3:
+					System.out.println("caught pickup");
+					points+= energy.value;
+					addEnergy(3);
+					break;
 					//break;
 			}
 
@@ -215,7 +215,7 @@ public class MainGameScene extends ScreenAdapter
 		}
 
             Plane.planeAnim += deltaTime;			// updating animation frames
-            //Bird.birdAnim += deltaTime;
+            Pickup.pickupAnimTime += deltaTime;
 
 
 			if(plane.getX() < plane.getWidth()/2 * -1){planeOutOfBounds = true;}
@@ -242,6 +242,7 @@ public class MainGameScene extends ScreenAdapter
 			if(plane.getX() > plane.getWidth() ){
 				planeOutOfBounds = false;
 			}
+
             for (Bird bird : birds) {
 					bird.updateBird(deltaTime);
                     //if(bird.type == Bird.BirdType.KILL_BONUS) continue;
@@ -295,6 +296,9 @@ public class MainGameScene extends ScreenAdapter
 		}
 
 		tapDrawTime-=deltaTime;
+
+		smoke.setPosition(plane.getX()-25, plane.getY());
+		smoke.update(deltaTime);
 	}
 
 	///////////////////////////////// DRAWING SCENE /////////////////////////////////////////////
@@ -351,6 +355,8 @@ public class MainGameScene extends ScreenAdapter
 
 		batch.draw(plane.plane.getKeyFrame(Plane.planeAnim), plane.getX()-45f, plane.getY()-30f);
 			if(debugMode) batch.draw(point, plane.position.x, plane.position.y);
+		smoke.draw(batch);
+		//batch.draw(energy.pickupAnimation.getKeyFrame(Pickup.pickupAnimTime), energy.getX()-10f, energy.getY()-10f );
 
 		if (tapDrawTime>0) batch.draw(tapIndicator, touchPos.x-15f, touchPos.y-15f);
 
@@ -397,10 +403,10 @@ public class MainGameScene extends ScreenAdapter
 
 		switch(number){
 
-			case 1: return "ground_grass1";
-			case 2: return "ground_grass2";
-			case 3: return "ground_grass3";
-			case 4: return "ground_grass4";
+			case 1: return "environment/ground_grass1";
+			case 2: return "environment/ground_grass2";
+			case 3: return "environment/ground_grass3";
+			case 4: return "environment/ground_grass4";
 
 		}
 
@@ -472,4 +478,28 @@ public class MainGameScene extends ScreenAdapter
 		below = randomizeGround(below);
 		points = 0;
 	}
+
+	private void checkAndCreateEnergy(float delta){
+
+		pickupTimeout-=delta;
+		if (pickupTimeout <=0) {
+			pickupTimeout=(float)(0.5+Math.random()*0.5);
+			if(addEnergy(Pickup.ENERGY))
+				pickupTimeout=1+(float)Math.random()*5;
+		}
+
+	}
+
+	private boolean addEnergy(int pickupType)
+	{
+
+		Vector2 randomPosition=new Vector2();
+		randomPosition.x=820;
+		randomPosition.y=(float) (80+Math.random()*320);
+		Pickup tempPickup=new Pickup(pickupType, textures);
+		tempPickup.pickupPosition.set(randomPosition);
+		energy = tempPickup;
+		return true;
+	}
+
 }
