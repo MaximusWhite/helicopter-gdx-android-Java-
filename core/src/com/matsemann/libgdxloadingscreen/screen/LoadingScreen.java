@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.helicopter.game.HelicopterGame;
 import com.helicopter.game.game_scene.MainGameScene;
+import com.helicopter.game.main_menu.HelicopterMainMenu;
 import com.matsemann.libgdxloadingscreen.LoadingBar;
 
 /**
@@ -85,7 +86,7 @@ public class LoadingScreen extends ScreenAdapter {
 		// game.manager.load("data/assets1.pack", TextureAtlas.class);
 		// game.manager.load("data/assets2.pack", TextureAtlas.class);
 		// game.manager.load("data/assets3.pack", TextureAtlas.class);
-		HelicopterGame.loadAssets();
+		game.loadAssets();
 	}
 
 	@Override
@@ -131,7 +132,7 @@ public class LoadingScreen extends ScreenAdapter {
 
 		if (game.manager.update()) { // Load some, will return true if done
 										// loading
-				game.setScreen(new MainGameScene(game));
+				game.setScreen(new HelicopterMainMenu(game));
 		}
 
 		// Interpolate the percentage to make it more smooth

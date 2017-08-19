@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -25,9 +26,10 @@ public class HelicopterGame extends Game {
     public static final int screenHeight = 480;
 
     public  OrthographicCamera camera;
-    private Viewport viewport;
+    public Viewport viewport;
     public SpriteBatch batch;
-  //  TextureAtlas textures = new TextureAtlas();
+    public boolean soundEnabled = true;
+    public float soundVolume = 1;
 
     public static AssetManager manager = new AssetManager();
 
@@ -46,7 +48,6 @@ public class HelicopterGame extends Game {
 
     @Override
     public void render(){
-
         super.render();
     }
 
@@ -59,7 +60,6 @@ public class HelicopterGame extends Game {
     @Override
     public void dispose(){
         batch.dispose();
-        //textures.dispose();
     }
 
     public static void loadAssets(){
@@ -69,6 +69,8 @@ public class HelicopterGame extends Game {
         manager.load("points_font.fnt", BitmapFont.class);
         manager.load("dfont.fnt", BitmapFont.class);
         manager.load("fx/Smoke", ParticleEffect.class);
+        manager.load("title.png", Texture.class);
+        System.out.println("Title loaded...");
         manager.finishLoading();
     }
 
