@@ -2,6 +2,9 @@ package com.helicopter.game;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -33,6 +36,8 @@ public class HelicopterGame extends Game {
 
     public static AssetManager manager = new AssetManager();
 
+    public Music music;
+
     public HelicopterGame(){
         FPSLogger fpsLogger = new FPSLogger();
         camera = new OrthographicCamera();
@@ -41,7 +46,6 @@ public class HelicopterGame extends Game {
     }
     @Override
     public void create() {
-
         batch = new SpriteBatch();
         setScreen(new LoadingScreen(this));
     }
@@ -60,6 +64,7 @@ public class HelicopterGame extends Game {
     @Override
     public void dispose(){
         batch.dispose();
+        music.dispose();
     }
 
     public static void loadAssets(){
@@ -70,7 +75,6 @@ public class HelicopterGame extends Game {
         manager.load("dfont.fnt", BitmapFont.class);
         manager.load("fx/Smoke", ParticleEffect.class);
         manager.load("title.png", Texture.class);
-        System.out.println("Title loaded...");
         manager.finishLoading();
     }
 

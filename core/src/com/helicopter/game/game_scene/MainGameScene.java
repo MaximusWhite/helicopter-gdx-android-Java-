@@ -5,6 +5,7 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Peripheral;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
@@ -76,6 +77,7 @@ public class MainGameScene extends ScreenAdapter
 	InputTracker inputProcessor = new InputTracker();
 
 
+
 	static enum GameState{
 
         INIT, ACTION, GAME_OVER, PAUSE
@@ -92,6 +94,14 @@ public class MainGameScene extends ScreenAdapter
 
 	ParticleEffect smoke = new ParticleEffect();
 
+	Sound tapSound1 = Gdx.audio.newSound(Gdx.files.internal("sound/tap1.mp3"));
+	Sound tapSound2 = Gdx.audio.newSound(Gdx.files.internal("sound/tap2.mp3"));
+	Sound tapSound3 = Gdx.audio.newSound(Gdx.files.internal("sound/tap3.mp3"));
+	Sound tapSound4 = Gdx.audio.newSound(Gdx.files.internal("sound/tap4.mp3"));
+
+	Sound crashSound1 = Gdx.audio.newSound(Gdx.files.internal("sound/crash1.mp3"));
+	Sound crashSound2 = Gdx.audio.newSound(Gdx.files.internal("sound/crash2.mp3"));
+	Sound crashSound3 = Gdx.audio.newSound(Gdx.files.internal("sound/crash3.mp3"));
 	// VARS DONE
 
 	public MainGameScene(HelicopterGame helicoptGame) {
@@ -156,7 +166,12 @@ public class MainGameScene extends ScreenAdapter
 		if (Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)){
 			orientation = Gdx.input.getRotation();
 		}
-
+		if (game.music != null) game.music.stop();
+		if (game.soundEnabled) {
+			game.music = Gdx.audio.newMusic(Gdx.files.internal("sound/game_soundtrack.mp3"));
+			game.music.setLooping(true);
+			game.music.play();
+		}
 		resetScene();
 	}
 
@@ -164,8 +179,8 @@ public class MainGameScene extends ScreenAdapter
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		//fpsLogger.log();
-
+		fpsLogger.log();
+		game.music.setVolume(game.soundVolume + 1);
 		updateScene();
 		drawScene();
 	}
@@ -190,10 +205,13 @@ public class MainGameScene extends ScreenAdapter
 				case 0: break;
 				case 1:
 					gameState = GameState.GAME_OVER;		// surrounding collision
+					if (game.soundEnabled) pickCrashSound().play();
 					return;
 					//break;
 				case 2:
 					gameState = GameState.GAME_OVER;		// bird collision
+					if (game.soundEnabled) pickCrashSound().play();
+
 					return;
 					//game.setScreen(new HelicopterMainMenu(game));  // changing screen
 				case 3:
@@ -260,6 +278,9 @@ public class MainGameScene extends ScreenAdapter
             ///////// INPUT ////////
 
             if (touchInput && Gdx.input.justTouched() && !planeOutOfBounds) {
+				if (game.soundEnabled) {
+					pickTapSound().play();
+				}
                 touchTime = 0;
                 touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
                 camera.unproject(touchPos);
@@ -411,6 +432,39 @@ public class MainGameScene extends ScreenAdapter
 		}
 
 		return "failed.png";
+	}
+
+	public Sound pickTapSound(){
+
+		Random rand = new Random();
+		int number = rand.nextInt(4) +1;
+
+		switch(number){
+
+			case 1: return tapSound1;
+			case 2: return tapSound2;
+			case 3: return tapSound3;
+			case 4: return tapSound4;
+
+		}
+
+		return tapSound1;
+	}
+
+	public Sound pickCrashSound(){
+
+		Random rand = new Random();
+		int number = rand.nextInt(3) +1;
+
+		switch(number){
+
+			case 1: return crashSound1;
+			case 2: return crashSound2;
+			case 3: return crashSound3;
+
+		}
+
+		return crashSound1;
 	}
 
 	public TextureRegion[] randomizeGround(TextureRegion[] arr){

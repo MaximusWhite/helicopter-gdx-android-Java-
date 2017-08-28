@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -76,8 +77,6 @@ public class HelicopterMainMenu extends ScreenAdapter {
         optionsButton = new TextButton("SOUND OPTIONS", skin);
         table.add(optionsButton).padBottom(10);
         table.row();
-        table.add(new TextButton("LEADERBOARD", skin)).padBottom(10);
-        table.row();
         exitButton = new TextButton("EXIT GAME", skin);
         table.add(exitButton);
         table.setPosition(400, -200);
@@ -99,12 +98,17 @@ public class HelicopterMainMenu extends ScreenAdapter {
         options.setPosition(400, -200);
         muteCheckBox.setChecked(!game.soundEnabled);
         volumeSlider.setValue(game.soundVolume);
-
         stage.addActor(screenBg);
         stage.addActor(title);
         stage.addActor(helpTip);
         stage.addActor(table);
         stage.addActor(options);
+        if (game.music != null) game.music.stop();
+        if (game.soundEnabled) {
+            game.music = Gdx.audio.newMusic(Gdx.files.internal("sound/main_menu.mp3"));
+            game.music.setLooping(true);
+            game.music.play();
+        }
 
         playButton.addListener(new ClickListener(){
             @Override
@@ -137,6 +141,11 @@ public class HelicopterMainMenu extends ScreenAdapter {
         muteCheckBox.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                if (muteCheckBox.isChecked()){
+                    game.music.pause();
+                } else {
+                    game.music.play();
+                }
                 game.soundEnabled = !muteCheckBox.isChecked();
             }
         });
@@ -188,6 +197,7 @@ public class HelicopterMainMenu extends ScreenAdapter {
         // Clear the screen
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         // Show the menu
+        game.music.setVolume(game.soundVolume);
         stage.act();
         stage.draw();
     }
